@@ -2,7 +2,7 @@
 
 
 def lcg(modulus, _a_, _c_, seed):
-    """A linear congriential generator"""
+    """A linear congruential generator"""
     i = 0
     rn_list = []
     while i < 10000:
