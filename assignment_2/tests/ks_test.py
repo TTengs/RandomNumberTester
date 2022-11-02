@@ -42,7 +42,7 @@ def k_s(the_random_list):
     print(D)
     if(D < 0.565):
         print("D < 0.565")
-        print("H0 is not rejected")
+        print("*H0 is not rejected")
     else:
         print("0.565 < D")
-        print("H0 is rejected")
+        print("**H0 is rejected")
