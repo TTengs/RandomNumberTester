@@ -10,7 +10,7 @@ def random_lib():
         random_double = random.random()
         rn_list.append(random_double)
         i = i + 1
-    print(rn_list)
+    return rn_list
 
 
-random_lib()
+random_list = random_lib()
