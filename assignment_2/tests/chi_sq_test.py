@@ -7,7 +7,7 @@ def chi_test(the_random_list):
     N = 10000
     _random = []
     _random = the_random_list
-    E = 10
+    E = 1000
     CHI_SQ_SIG_5_PERCENT_9_DEG = 16.92
     interval_1 = [0.0, 0.1]
     interval_2 = [0.1, 0.2]
@@ -54,6 +54,7 @@ def chi_test(the_random_list):
     chi_list = [((o_1-E)**2)/E, ((o_2-E)**2)/E, ((o_3-E)**2)/E, ((o_4-E)**2)/E, ((o_5-E)**2)/E,
                 ((o_6-E)**2)/E, ((o_7-E)**2)/E, ((o_8-E)**2)/E, ((o_9-E)**2)/E, ((o_10-E)**2)/E]
     chi_square_total = sum(chi_list)
+    print(chi_square_total)
     if chi_square_total > CHI_SQ_SIG_5_PERCENT_9_DEG:
         print("H0 rejected")
     else:
