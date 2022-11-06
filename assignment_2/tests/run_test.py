@@ -1,7 +1,8 @@
 """Takes a random generated list of numbers"""
+import math
 
 
-def run_test(the_random_list):
+def run_test(the_random_list, type_of_gen):
     """Run Test"""
 
     print("Run Test")
@@ -29,7 +30,8 @@ def run_test(the_random_list):
         if(plus_minus_list[i] == '+'):
             indexes.append(i)
     # print the indices for the + of the plus_minus_list
-    print(indexes)
+    # print("print the indices for the + of the plus_minus_list")
+    # print(indexes)
 
     # take in to account all the minuses before encountering the first + in indexes
     if indexes[0] != 0:
@@ -80,6 +82,34 @@ def run_test(the_random_list):
             i = j
             j = 0
             counter = 0
-    print(loops_runs_dic.items())
+    # print(loops_runs_dic.items())
     # sorted version with respect to the length of period
-    # print(sorted(loops_runs_dic.items(), key=lambda kv: kv[0]))
+    # print("sorted version with respect to the length of period")
+    print(sorted(loops_runs_dic.items(), key=lambda kv: kv[0]))
+    sorted_list = sorted(loops_runs_dic.items(), key=lambda kv: kv[0])
+
+    rule_list = []
+    for i in range(len(sorted_list)):
+        e = 2*(N*(sorted_list[i][0]**2 + 3*sorted_list[i][0] + 1) -
+               (sorted_list[i][0]**3 + 3*sorted_list[i][0]**2 - sorted_list[i][0] - 4))/math.factorial(sorted_list[i][0]+3)
+        o = sorted_list[i][1]
+        # do not include in the list that gives division by zero
+        if(e != 0):
+            rule_list.append(math.pow(e-o, 2)/e)
+    # print(sum(rule_list))
+    k = len(rule_list)
+    f = k-1
+    x = sum(rule_list)
+    if(type_of_gen == 1):
+        x_sigma = 11.07  # from the table given for 5 freedom
+    elif(type_of_gen == 2):
+        x_sigma = 12.59  # from the table given for 6 freedom
+    elif(type_of_gen == 3):
+        x_sigma = 14.07  # from the table given for 7 freedom
+
+    if(x > x_sigma):
+        print("x > x_sigma", x, x_sigma)
+        print("We reject the null hypothesis of independence")
+    else:
+        print("x < x_sigma", x, x_sigma)
+        print("We do not reject the hypothesis of independence")

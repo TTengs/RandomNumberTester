@@ -26,9 +26,10 @@ if __name__ == '__main__':
     chi_sq_test.chi_test(random_lib.random_list) """
 
     print("----A linear congruential generator---")
-    run_test.run_test(lcm_gen.rn)
+    run_test.run_test(lcm_gen.rn, 1)
 
-    # print("---RANDU generator---")
-    # run_test.run_test(lcm_randu.rando_list)
-    # print("---python library generator---")
-    # run_test.run_test(random_lib.random_list)
+    print("---RANDU generator---")
+    run_test.run_test(lcm_randu.rando_list, 2)
+
+    print("---python library generator---")
+    run_test.run_test(random_lib.random_list, 3)
