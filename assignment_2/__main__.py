@@ -27,7 +27,8 @@ if __name__ == '__main__':
 
     print("----A linear congruential generator---")
     run_test.run_test(lcm_gen.rn)
-    print("---RANDU generator---")
-    run_test.run_test(lcm_randu.rando_list)
-    print("---python library generator---")
-    run_test.run_test(random_lib.random_list)
+
+    # print("---RANDU generator---")
+    # run_test.run_test(lcm_randu.rando_list)
+    # print("---python library generator---")
+    # run_test.run_test(random_lib.random_list)
