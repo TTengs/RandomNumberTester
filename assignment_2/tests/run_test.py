@@ -6,10 +6,10 @@ def run_test(the_random_list, type_of_gen):
     """Run Test"""
 
     print("Run Test")
-
+    # print(the_random_list)
     _random = []
     _random = the_random_list
-    largest = _random[0]
+    last_num = _random[0]
     plus_minus_list = []
     indexes = []
     loops_runs_dic = {
@@ -20,12 +20,12 @@ def run_test(the_random_list, type_of_gen):
     no_plus_series = True
 
     for i in range(len(_random[1:])):
-        if _random[i+1] > largest:
-            largest = _random[i+1]
+        if _random[i+1] > last_num:
             plus_minus_list.append('+')
         else:
             plus_minus_list.append('-')
-
+        last_num = _random[i+1]
+    print(len(plus_minus_list))
     for i in range(len(plus_minus_list)):
         if(plus_minus_list[i] == '+'):
             indexes.append(i)
@@ -90,22 +90,25 @@ def run_test(the_random_list, type_of_gen):
 
     rule_list = []
     for i in range(len(sorted_list)):
-        e = 2*(N*(sorted_list[i][0]**2 + 3*sorted_list[i][0] + 1) -
-               (sorted_list[i][0]**3 + 3*sorted_list[i][0]**2 - sorted_list[i][0] - 4))/math.factorial(sorted_list[i][0]+3)
+        e = (2/(math.factorial(sorted_list[i][0]+3)))*(N*(sorted_list[i][0]**2 + 3*sorted_list[i][0] + 1) -
+                                                       (sorted_list[i][0]**3 + 3*sorted_list[i][0]**2 - sorted_list[i][0] - 4))
         o = sorted_list[i][1]
         # do not include in the list that gives division by zero
+        print(e)
         if(e != 0):
+            print("---------")
+            print(((e-o)**2)/e)
             rule_list.append(math.pow(e-o, 2)/e)
-    # print(sum(rule_list))
+    print(sum(rule_list))
     k = len(rule_list)
     f = k-1
     x = sum(rule_list)
     if(type_of_gen == 1):
-        x_sigma = 11.07  # from the table given for 5 freedom
+        x_sigma = 12.59  # from the table given for 5 freedom
     elif(type_of_gen == 2):
         x_sigma = 12.59  # from the table given for 6 freedom
     elif(type_of_gen == 3):
-        x_sigma = 14.07  # from the table given for 7 freedom
+        x_sigma = 12.59  # from the table given for 7 freedom
 
     if(x > x_sigma):
         print("x > x_sigma", x, x_sigma)
