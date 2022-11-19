@@ -9,4 +9,18 @@ from tests import corollation_test
 
 if __name__ == '__main__':
 
-    corollation_test.corollation_test(lcm_gen.rn)
+    # print("----A linear congruential generator---")
+    # ks_test.k_s(lcm_gen.rn[:100])
+    # print("---RANDU generator---")
+    # ks_test.k_s(lcm_randu.rando_list[:100])
+    # print("---python library generator---")
+    # ks_test.k_s(random_lib.random_list[:100])
+
+    """DO CHI_SQUARE TEST"""
+
+    print("----A linear congruential generator---")
+    chi_sq_test.chi_test(lcm_gen.rn)
+    print("---RANDU generator---")
+    chi_sq_test.chi_test(lcm_randu.rando_list)
+    print("---python library generator---")
+    chi_sq_test.chi_test(random_lib.random_list)
