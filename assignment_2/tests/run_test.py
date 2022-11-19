@@ -8,43 +8,33 @@ def run_test(the_random_list):
     print("Run Test")
     _random = []
     _random = the_random_list
-    last_num = _random[0]
-    plus_minus_list = []
     N = 10000
 
-    for i in range(len(_random[1:])):
-        if _random[i+1] > last_num:
-            plus_minus_list.append('+')
-        else:
-            plus_minus_list.append('-')
-        last_num = _random[i+1]
-    # print(len(plus_minus_list))
-
-    create_dictionary_of_runs(plus_minus_list, N)
-
-
-def create_dictionary_of_runs(plus_minus_list, TOTAL_RANDOM_NUMBERS):
-    """Create dictionary of length with each has number of runs"""
-
-    plus_counter = 0
-    minus_counter = 0
     loops_runs_dic = {}
-    for i in range(0, len(plus_minus_list)):
-        if(plus_minus_list[i] == '+'):
-            plus_counter += 1
-            if(plus_counter > 0 and minus_counter > 0):
-                loops_runs_dic = append_to_dic(minus_counter, loops_runs_dic)
-            minus_counter = 0
-        else:
-            minus_counter += 1
-            if(minus_counter > 0 and plus_counter > 0):
-                loops_runs_dic = append_to_dic(plus_counter, loops_runs_dic)
-            plus_counter = 0
+    i = 0
+    counter = 0
 
+    while i < len(_random):
+        if i == len(_random)-1:
+            break
+        if _random[i+1] > _random[i]:
+            while _random[i+1] > _random[i]:
+                counter += 1
+                i += 1
+                if i == len(_random)-1:
+                    break
+        else:
+            while _random[i+1] < _random[i]:
+                counter += 1
+                i += 1
+                if i == len(_random)-1:
+                    break
+        loops_runs_dic = append_to_dic(counter, loops_runs_dic)
+        counter = 0
     sorted_list = sorted(loops_runs_dic.items(), key=lambda kv: kv[0])
     print(sorted_list)
 
-    get_rule(sorted_list, TOTAL_RANDOM_NUMBERS)
+    get_rule(sorted_list, N)
 
 
 def append_to_dic(c, loops_runs_dic):
