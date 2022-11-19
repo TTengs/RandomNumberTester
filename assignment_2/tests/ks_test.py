@@ -1,4 +1,5 @@
 """takes a list of generated random number"""
+import math
 
 
 def k_s(the_random_list):
@@ -35,14 +36,14 @@ def k_s(the_random_list):
 
     # Calculate max(D+, D-)
 
-    D = max((N**(0.5) * max(d_plus)), (N**(0.5) * max(d_minus)))
+    D = max((max(d_plus)), (max(d_minus)))
 
     print("Value of D is :")
 
     print(D)
-    if(D < 0.565):
-        print("D < 0.565")
+    if(D < 1.36/math.sqrt(N)):
+        print("D < 1.36/SQRT(N)")
         print("*H0 is not rejected")
     else:
-        print("0.565 < D")
+        print("D > 1.36/SQRT(N)")
         print("**H0 is rejected")
