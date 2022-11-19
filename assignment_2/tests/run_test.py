@@ -51,7 +51,7 @@ def append_to_dic(c, loops_runs_dic):
 def get_rule(sorted_list, N):
     rule_list = []
     # we have taken the first 6 and added them
-    for i in range(0, 6):
+    for i in range(0, len(sorted_list)):
         e = (2/(math.factorial(sorted_list[i][0]+3)))*(N*(sorted_list[i][0]**2 + 3*sorted_list[i][0] + 1) - (
             sorted_list[i][0]**3 + 3*sorted_list[i][0]**2 - sorted_list[i][0] - 4))
         o = sorted_list[i][1]
@@ -61,15 +61,13 @@ def get_rule(sorted_list, N):
         if(e != 0):
             rule_list.append(math.pow(e-o, 2)/e)
 
-    print("Summation is : ", sum(rule_list))
-    k = 6
-    df = k-1
+    print("Summation is: ", sum(rule_list))
     x = sum(rule_list)
-    x_sigma = 11.07  # degree of freedom 5
+    degree_of_freedom = {5: 11.07, 6: 12.59}
 
-    if(x > x_sigma):
-        print("x > x_sigma", x, x_sigma)
+    if(x > degree_of_freedom[len(sorted_list)-1]):
+        print(x, degree_of_freedom[len(sorted_list)-1], sep=">")
         print("We reject the null hypothesis of independence")
     else:
-        print("x < x_sigma", x, x_sigma)
+        print(x, degree_of_freedom[len(sorted_list)-1], sep="<")
         print("We do not reject the hypothesis of independence")
