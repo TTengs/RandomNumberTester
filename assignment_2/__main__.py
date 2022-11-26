@@ -17,6 +17,17 @@ if __name__ == '__main__':
     print("---RANDU generator---")
     run_test.run_test(lcm_randu.rando_list)
 
+    print("----A linear congruential generator---")
+    run_test.run_test(lcm_gen.rn)
+
+    print(" ")
+
+    print(" ")
+    print("---RANDU generator---")
+    run_test.run_test(lcm_randu.rando_list)
+
+    print(" ")
+
     print(" ")
     print("---python library generator---")
     run_test.run_test(random_lib.random_list)
