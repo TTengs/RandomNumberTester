@@ -8,7 +8,6 @@ from tests import run_test
 from tests import corollation_test
 
 if __name__ == '__main__':
-    """Run Test"""
 
     print("----A linear congruential generator---")
     run_test.run_test(lcm_gen.rn)
@@ -19,18 +18,6 @@ if __name__ == '__main__':
 
     print("----A linear congruential generator---")
     run_test.run_test(lcm_gen.rn)
-
-    print(" ")
-
-    print(" ")
-    print("---RANDU generator---")
-    run_test.run_test(lcm_randu.rando_list)
-
-    print(" ")
-
-    print(" ")
-    print("---python library generator---")
-    run_test.run_test(random_lib.random_list)
 
     print("")
     print("lcm generator without randu ")
