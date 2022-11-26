@@ -10,23 +10,8 @@ from tests import corollation_test
 if __name__ == '__main__':
 
     print("----A linear congruential generator---")
-    run_test.run_test(lcm_gen.rn)
-
-    print(" ")
+    chi_sq_test.chi_test(lcm_gen.rn)
     print("---RANDU generator---")
-    run_test.run_test(lcm_randu.rando_list)
-
-    print("----A linear congruential generator---")
-    run_test.run_test(lcm_gen.rn)
-
-    print("")
-    print("lcm generator without randu ")
-    corollation_test.corollation_test(lcm_gen.rn)
-
-    print(" ")
-    print("lcm generator with randu ")
-    corollation_test.corollation_test(lcm_randu.rando_list)
-
-    print(" ")
-    print("lcm generator using the library ")
-    corollation_test.corollation_test(random_lib.random_list)
+    chi_sq_test.chi_test(lcm_randu.rando_list)
+    print("---python library generator---")
+    chi_sq_test.chi_test(random_lib.random_list)
