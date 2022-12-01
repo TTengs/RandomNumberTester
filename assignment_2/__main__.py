@@ -9,6 +9,21 @@ from tests import corollation_test
 
 if __name__ == '__main__':
 
+    """corolation Test"""
+
+    print("----A linear congruential generator---")
+    corollation_test.corollation_test(lcm_gen.rn)
+
+    print("")
+    print("---RANDU generator---")
+    corollation_test.corollation_test(lcm_randu.rando_list)
+
+    print("")
+    print("---python library generator---")
+    corollation_test.corollation_test(random_lib.random_list)
+
+    print("######## End of corolation Test #########")
+
     """Run Test"""
     print("----A linear congruential generator---")
     run_test.run_test(lcm_gen.rn)
@@ -52,18 +67,3 @@ if __name__ == '__main__':
     ks_test.k_s(random_lib.random_list)
 
     print("######## End of ks Test #########")
-
-    """corolation Test"""
-
-    print("----A linear congruential generator---")
-    corollation_test.corollation_test(lcm_gen.rn)
-
-    print("")
-    print("---RANDU generator---")
-    corollation_test.corollation_test(lcm_randu.rando_list)
-
-    print("")
-    print("---python library generator---")
-    corollation_test.corollation_test(random_lib.random_list)
-
-    print("######## End of corolation Test #########")
