@@ -4,14 +4,14 @@ from kafka import KafkaProducer
 
 #NOTE Dockerfile does not work, so instead run script locally with python
 #NOTE Prerequisite to run the script locally is to use VPN, have SSH to Node1 in VSCode and portforwarded 9094
-producer = KafkaProducer(bootstrap_servers=['localhost:9094'], api_version=(2, 5, 0))
+producer = KafkaProducer(bootstrap_servers=['localhost:9094'], api_version=(2, 5, 0), value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 # Filter function
 
 #send "historical data"
 with gzip.open('./2015-01-01-15.json.gz', mode='rt', encoding='utf-8') as f:
     for line in f:
         jsonLine = json.loads(line)
-        producer.send('ghData', value=json.dumps(line).encode('utf8'), key=str(jsonLine["repo"]["id"]).encode('utf8')) 
+        producer.send('test', value=jsonLine, key=str(jsonLine["repo"]["id"]).encode('utf-8')) 
 
 
 # select_words = lambda s : s[1] > 400
