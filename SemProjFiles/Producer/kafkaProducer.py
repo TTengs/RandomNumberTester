@@ -11,7 +11,8 @@ producer = KafkaProducer(bootstrap_servers=['localhost:9094'], api_version=(2, 5
 with gzip.open('./2015-01-01-15.json.gz', mode='rt', encoding='utf-8') as f:
     for line in f:
         jsonLine = json.loads(line)
-        producer.send('test', value=jsonLine, key=str(jsonLine["repo"]["id"]).encode('utf-8')) 
+        if "issue" in jsonLine["type"].str.lower()
+            producer.send('test', value=jsonLine, key=str(jsonLine["repo"]["id"]).encode('utf-8')) 
 
 
 # select_words = lambda s : s[1] > 400
